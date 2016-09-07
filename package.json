@@ -1,0 +1,29 @@
+{
+  "name": "JpMPersonalFolio",
+  "version": "1.0.0",
+  "description": "JPM Personal Portfolio",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AmitSingh27/JpmPersonalFolio.git"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmitSingh27/JpmPersonalFolio/issues"
+  },
+  "homepage": "https://github.com/AmitSingh27/JpmPersonalFolio",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "bower": "^1.7.9",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "multer": "^1.2.0"
+  }
+}
