@@ -15,6 +15,8 @@ app.get('/', function (req, res) {
 
 app.get('/stocks', function(req,res){
 
+    //To move to a seperate DB file
+
     // Use connect method to connect to the Server
     MongoClient.connect(url, function (err, db) {
         if (err) {
