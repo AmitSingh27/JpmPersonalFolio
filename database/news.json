@@ -1,0 +1,32 @@
+[
+{
+	"id" : 1,
+	"url" : "http://www.bloomberg.com/news/articles/2016-09-06/dollar-battered-as-september-hike-bets-drop-nikkei-futures-fall",
+	"title": "Emerging Markets Rally as Fed Rate-Hike Bets Pulled; Won Surges",
+	"tag":"equity"
+},
+{
+	"id" : 2,
+	"url" : "http://www.bloomberg.com/news/articles/2016-09-06/forget-paris-singapore-seen-as-best-business-hub-after-london",
+	"title": "Watch Out London, Singapore is Next in Line as Best Financial Hub",
+	"tag":"equity"
+},
+{
+	"id" : 3,
+	"url" : "http://www.bloomberg.com/news/articles/2016-09-06/buyback-addiction-getting-costly-for-s-p-500-ceos-burning-cash",
+	"title": "Cash Piles at American Companies Are Shrinking",
+	"tag":"equity"
+},
+{
+	"id" : 4,
+	"url" : "http://www.bloomberg.com/news/articles/2016-09-05/after-summer-of-easy-profits-america-s-bond-traders-are-on-edge",
+	"title": "After Summer of Easy Profits, America’s Bond Traders Are on Edge",
+	"tag":"fixedincome"
+},
+{
+	"id" : 5,
+	"url" : "http://www.bloomberg.com/news/articles/2016-09-04/china-banks-play-catch-up-with-capital-raising-as-bad-loans-soar",
+	"title": "China Is About to Get Serious With Bad Debt",
+	"tag":"fixedincome"
+}
+]

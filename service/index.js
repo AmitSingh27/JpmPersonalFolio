@@ -13,6 +13,13 @@ app.get('/', function (req, res) {
     res.send('Hello World');
 });
 
+app.get('/user', function (req, res) {
+    res.header('Access-Control-Allow-Origin', '*');
+    var user = {};
+    user.name = "Nishant";
+    res.send(user);
+});
+
 app.get('/stocks', function(req,res){
 
     //To move to a seperate DB file
