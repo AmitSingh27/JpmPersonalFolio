@@ -1,56 +1,81 @@
-var express = require('express');
-var mongodb = require('mongodb');
-
-//We need to work with "MongoClient" interface in order to connect to a mongodb server.
-var MongoClient = mongodb.MongoClient;
-
-// Connection URL. This is where your mongodb server is running.
-var url = 'mongodb://localhost:27017/JPMPortfolioManagement';
-
-var app = express();
-
-app.get('/', function (req, res) {
-    res.send('Hello World');
+var app = require('express')(); // Require Express module
+var http = require('http').Server(app); // Http server
+var bodyParser = require("body-parser"); // Require Body parser module
+var mongo = require('mongoskin'); // Require mongoskin module
+var db = mongo.db("mongodb://localhost:27017/JPMPortfolioManagement", {native_parser: true}); // Connection MongoDB book collection DB
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json()); // Body parser use JSON data
+app.use(function (req, res, next) {
+    req.db = db;
+    res.header('Access-Control-Allow-Origin', '*'); // We can access from anywhere
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+    next();
 });
+app.listen(3000);
+console.log("server starts ...");
 
-app.get('/user', function (req, res) {
-    res.header('Access-Control-Allow-Origin', '*');
-    var user = {};
-    user.name = "Nishant";
-    res.send(user);
-});
-
-app.get('/stocks', function(req,res){
-
-    //To move to a seperate DB file
-
-    // Use connect method to connect to the Server
-    MongoClient.connect(url, function (err, db) {
-        if (err) {
-            console.log('Unable to connect to the mongoDB server. Error:', err);
+app.get('/:collectionName', function (req, res) {
+    var obj = req.params['collectionName'];
+    var ret = {};
+    db.collection(obj).find().toArray(function (err, data) {
+        if (data.length != 0) {
+            ret['error'] = 0;
+            ret['data'] = data;
         } else {
-
-            console.log('Connection established to', url);
-
-            // do some work here with the database.
-            var cursor = db.collection('stocks').find({}, {_id :0, name:1, currentPrice:1});
-
-            cursor.toArray(function(err, docs) {
-                console.log(docs);
-                res.send(docs);
-            })
-
-            //Close connection
-            db.close();
+            ret['error'] = 1;
+            ret['data'] = err;
         }
+        res.json(ret);
     });
 });
 
-var server = app.listen(8081, function () {
+app.post('/:collectionName', function (req, res) {
+    var obj = req.params['collectionName'];
+    var ret = {};
+    db.collection(obj).insert(req.body, function (err, data) {
+        if (!err) {
+            ret['error'] = 0;
+        } else {
+            ret['error'] = 1;
+            ret['data'] = err;
+        }
+        res.json(ret);
+    });
+});
 
-    var host = server.address().address
-    var port = server.address().port
+app.put('/:collectionName/:key/:value', function (req, res) {
+    var obj = req.params['collectionName'];
+    var keyName = req.params['key'];
+    var value = req.params['value'];
+    var query = {};
+    query[keyName] = value;
+    var ret = {};
+    db.collection(obj).update(query, {$set: req.body}, function (err, data) {
+        if (!err) {
+            ret['error'] = 0;
+        } else {
+            ret['error'] = 1;
+            ret['data'] = err;
+        }
+        res.json(ret);
+    });
+});
 
-    console.log("App listening at http://%s:%s", host, port)
-
-})
+app.delete('/:collectionName/:key/:value', function (req, res) {
+    var obj = req.params['collectionName'];
+    var keyName = req.params['key'];
+    var value = req.params['value'];
+    var query = {};
+    query[keyName] = value;
+    var ret = {};
+    db.collection(obj).remove(query, function (err, data) {
+        if (!err) {
+            ret['error'] = 0;
+        } else {
+            ret['error'] = 1;
+            ret['data'] = err;
+        }
+        res.json(ret);
+    });
+});
