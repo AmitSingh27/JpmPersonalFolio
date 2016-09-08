@@ -3,7 +3,7 @@
  */
 
 
-JPMPortfolioManager.service('userService', function($http){
+JPMPortfolioManager.service('dataService', function($http){
 
     this.getUserDetails = function(){
         var url = "http://localhost:3000/users/1";
@@ -14,6 +14,13 @@ JPMPortfolioManager.service('userService', function($http){
     this.getNews = function(){
 
         var url = "http://localhost:3000/news";
+
+        return $http.get(url);
+    }
+
+    this.getStocks = function(){
+
+        var url = "http://localhost:3000/stocks";
 
         return $http.get(url);
     }

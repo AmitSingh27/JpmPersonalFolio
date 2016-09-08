@@ -2,4 +2,17 @@
 
 
 
-<script src="js/overviewController.js"></script>
+
+
+
+        <div class="col-lg-6 col-md-3 col-sm-3" ng-controller="OverviewController">
+            <h3>Summary Of Investments:</h3>
+            <p>
+
+                <canvas id="investment-total" class="chart chart-pie"
+                        chart-data="pieChartData" chart-labels="pieChartlabels" chart-options="options">
+                </canvas>
+            </p>
+        </div>
+
+
