@@ -32,6 +32,7 @@
     <script src="js/app.js"></script>
     <script src="js/appService.js"></script>
     <script src="js/appController.js"></script>
+    <script src="js/overviewController.js"></script>
     <script src="node_modules/chart.js/dist/Chart.min.js"></script>
     <script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
@@ -70,15 +71,33 @@
 </nav>
 <section class="main">
     <div class="row">
-        <div class="col-lg-9 col-md-9 col-sm-9">
+        <p></p>
+        <div class="col-lg-9 col-md-9 col-sm-9" ng-controller="OverviewController">
             <!-- Example row of columns -->
-            <div class="col-lg-6 col-md-3 col-sm-3">
-                <h3>Summary Of Investments:</h3>
-                <p>
-                    <canvas id="investment-total" class="chart chart-polar-area"
-                            chart-data="pieChartData" chart-labels="pieChartlabels" chart-options="options">
-                    </canvas>
-                </p>
+            <div class="panel panel-default">
+                <div class="panel-heading"><h4>Portfolio Summary</h4></div>
+                <div class="panel-body">
+
+                    <div class="col-lg-5 col-md-10 col-sm-10">
+
+                        <canvas id="investment-total" class="chart chart-pie"
+                                chart-data="pieChartData" chart-labels="pieChartlabels" chart-options="options" >
+                        </canvas>
+                    </div>
+                    <div class="col-lg-5 col-md-10 col-sm-10">
+                        <canvas id="base" class="chart-bar"
+                                chart-data="pieChartData" chart-labels="pieChartlabels" chart-colors="colors"
+                                chart-dataset-override="datasetOverride" >
+                        </canvas>
+
+                    </div>
+
+                </div>
+
+            <div class="col-lg-10 col-md-10 col-sm-10" align="center">
+                <br><br>
+
+            </div>
             </div>
         </div>
         <aside class="col-lg-3 col-md-3 col-sm-3" ng-controller="MainController">
