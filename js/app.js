@@ -4,11 +4,11 @@
 var JPMPortfolioManager = angular.module('JPMPortfolioManager', ['ngRoute']);
 JPMPortfolioManager.config(function ($routeProvider) {
     $routeProvider
-        .when("/", {
+        .when("/overview", {
             templateUrl: "overview.html",
             controller: "OverviewController"
         })
-        .when("/details", {
+        .when("/details/:id", {
             templateUrl: "details.html",
             controller: "DetailController"
         })
