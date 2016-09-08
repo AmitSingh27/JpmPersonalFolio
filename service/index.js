@@ -30,6 +30,23 @@ app.get('/:collectionName', function (req, res) {
     });
 });
 
+app.get('/:collectionName/:id', function (req, res) {
+    var obj = req.params['collectionName'];
+    var query = {};
+    query['id'] = req.params['id'];
+    var ret = {};
+    db.collection(obj).find(query).toArray(function (err, data) {
+        if (data.length != 0) {
+            ret['error'] = 0;
+            ret['data'] = data;
+        } else {
+            ret['error'] = 1;
+            ret['data'] = err;
+        }
+        res.json(ret);
+    });
+});
+
 app.post('/:collectionName', function (req, res) {
     var obj = req.params['collectionName'];
     var ret = {};
