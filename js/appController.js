@@ -8,7 +8,7 @@ JPMPortfolioManager.controller('MainController', function($scope, userService) {
 
     userService.getUserDetails()
         .success( function(user) {
-            $scope.userName = user.name;
+            $scope.userName = user.data[0].name;
         }
     );
 
