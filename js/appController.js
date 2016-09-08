@@ -3,14 +3,13 @@
  */
 
 
-JPMPortfolioManager.controller('MainController', function($scope, $http) {
+JPMPortfolioManager.controller('MainController', function($scope, userService) {
     $scope.appName = 'Portfolio Manager';
 
-    var url = "http://localhost:8081/user";
-
-    $http.get(url).success( function(response) {
-
-        $scope.userName = response.name;
-    });
+    userService.getUserDetails()
+        .success( function(user) {
+            $scope.userName = user.name;
+        }
+    );
 
 });
