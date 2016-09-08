@@ -4,7 +4,7 @@
 var JPMPortfolioManager = angular.module('JPMPortfolioManager', ['ngRoute', 'angular.filter']);
 JPMPortfolioManager.config(function ($routeProvider) {
     $routeProvider
-        .when("/", {
+        .when("/overview", {
             templateUrl: "overview.html",
             controller: "OverviewController"
         })
