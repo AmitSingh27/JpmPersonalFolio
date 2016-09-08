@@ -3,19 +3,25 @@
  */
 
 
-JPMPortfolioManager.controller('MainController', function($scope, userService) {
-    $scope.appName = 'Personal Portfolio Manager';
+JPMPortfolioManager.controller('MainController', function ($scope, $filter, dataService) {
+    $scope.appName = 'Portfolio Manager';
 
-    userService.getUserDetails()
-        .success( function(user) {
-            $scope.userName = user.data[0].name;
-        }
-    );
+    dataService.getUserDetails()
+        .success(function (user) {
+                $scope.userName = user.data[0].name;
+            }
+        );
 
-    userService.getNews()
-        .success( function(news) {
+    dataService.getNews()
+        .success(function (news) {
                 $scope.news = news.data;
-            console.log(news.data);
+            }
+        );
+
+    dataService.getStocks()
+        .success(function (stocks) {
+                $scope.stocks = stocks.data;
+                console.log($scope.stocks);
             }
         );
 
