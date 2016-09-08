@@ -20,13 +20,14 @@
   },
   "homepage": "https://github.com/AmitSingh27/JpmPersonalFolio",
   "dependencies": {
-    "express": "^4.14.0",
+    "angular-chart.js": "^1.0.2",
     "body-parser": "^1.15.2",
     "bower": "^1.7.9",
+    "express": "^4.14.0",
     "cookie-parser": "^1.4.3",
     "mongodb": "^2.2.9",
     "mongoose": "^4.6.0",
-    "multer": "^1.2.0",
-    "mongoskin":"^2.1.0"
+    "mongoskin": "^2.1.0",
+    "multer": "^1.2.0"
   }
 }
