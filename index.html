@@ -71,37 +71,39 @@
 
 <section class="main">
 
-    <div class="row">
-        <div class="col-lg-9 col-md-9 col-sm-9">
+    <div class="row col-lg-9">
+        <div class="col-lg-12 col-md-9 col-sm-9">
             <div ng-view></div>
         </div>
-        <aside class="col-lg-3 col-md-3 col-sm-3" ng-controller="MainController">
-            <div class="panel">
-                <div class="panel-header">
-                    News
-                </div>
-                <div class="panel-body-base" ng-repeat="article in news">
-                    <div class="panel-body-article col-lg-10">
-                        <a ng-href="{{article.url}}">{{ article.title }}</a>
-                    </div>
 
-                </div>
-            </div>
-
-            <div class="panel">
-                <div class="panel-header">
-                    Stocks
-                </div>
-                <div class="panel-body-base" ng-repeat="(key,value) in stocks | groupBy : 'industry.name' ">
-                    Industry: {{ key }}
-                    <div class="panel-body-article col-lg-10" ng-repeat="stock in value">
-                        {{ stock.name }} - {{ stock.currentPrice }}
-                    </div>
-
-                </div>
-            </div>
-        </aside>
     </div>
+
+    <aside class="col-lg-3" ng-controller="MainController">
+        <div class="panel">
+            <div class="panel-header">
+                News
+            </div>
+            <div class="panel-body-base" ng-repeat="article in news">
+                <div class="panel-body-article col-lg-10">
+                    <a ng-href="{{article.url}}">{{ article.title }}</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">
+                Stocks
+            </div>
+            <div class="panel-body-base" ng-repeat="(key,value) in stocks | groupBy : 'industry.name' ">
+                Industry: {{ key }}
+                <div class="panel-body-article col-lg-10" ng-repeat="stock in value">
+                    {{ stock.name }} - {{ stock.currentPrice }}
+                </div>
+
+            </div>
+        </div>
+    </aside>
 </section>
 
 <hr>
