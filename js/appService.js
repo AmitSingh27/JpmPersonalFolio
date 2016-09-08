@@ -11,4 +11,11 @@ JPMPortfolioManager.service('userService', function($http){
     return $http.get(url);
     }
 
+    this.getNews = function(){
+
+        var url = "http://localhost:3000/news";
+
+        return $http.get(url);
+    }
+
 });

@@ -54,14 +54,6 @@
       </div>
     </nav>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-      </div>
-    </div>
 
 
         <section class="main">
@@ -85,25 +77,22 @@
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
 
-                    <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-2">
-                        <aside>
-                            <div class="panel">
-                                <div class="panel-header">
-                                    header
-                                </div>
-                                <div class="panel-body-base">
-                                    <div class="panel-body-article col-lg-10">
-                                        content 1
-                                    </div>
-                                    <div class="panel-body-article col-lg-10">
-                                        content 2
-                                    </div>
 
-                                </div>
+
+                </div>
+                    <aside class="col-lg-3 col-md-3 col-sm-3" ng-controller="MainController">
+                        <div class="panel">
+                            <div class="panel-header">
+                                News
                             </div>
-                        </aside>
-                    </div>
+                            <div class="panel-body-base" ng-repeat="article in news">
+                                <div class="panel-body-article col-lg-10">
+                                   <a ng-href="{{article.url}}">{{ article.title }}</a>
+                                </div>
 
+                            </div>
+                        </div>
+                    </aside>
                 </div>
         </section>
 

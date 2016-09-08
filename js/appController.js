@@ -12,4 +12,11 @@ JPMPortfolioManager.controller('MainController', function($scope, userService) {
         }
     );
 
+    userService.getNews()
+        .success( function(news) {
+                $scope.news = news.data;
+            console.log(news.data);
+            }
+        );
+
 });

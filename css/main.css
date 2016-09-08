@@ -1,8 +1,8 @@
 .main {
     height: 100%;
     width: 100%;
-    padding-right: 15px;
     padding-left: 15px;
+    /*padding-left: 15px;*/
     margin-right: auto;
     margin-left: auto;
     display: table;
@@ -22,10 +22,7 @@
 }
 
 aside .panel {
-    border-radius: 5px 5px 0 0;
     border-color: #ddd;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
 }
 
 aside .panel .panel-header {
