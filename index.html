@@ -100,16 +100,15 @@
             </div>
             </div>
         </div>
-        <aside class="col-lg-3 col-md-3 col-sm-3" ng-controller="MainController">
-            <div class="panel">
-                <div class="panel-header">
-                    News
+        <aside class="col-lg-3 col-md-3 col-sm-3" ng-controller="MainController"  >
+            <div class="panel panel-default" align="left">
+                <div class="panel-header" >
+                    <bold>News</bold>
                 </div>
                 <div class="panel-body-base" ng-repeat="article in news">
                     <div class="panel-body-article col-lg-10">
                         <a ng-href="{{article.url}}">{{ article.title }}</a>
                     </div>
-
                 </div>
             </div>
         </aside>
