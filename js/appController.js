@@ -4,7 +4,7 @@
 
 
 JPMPortfolioManager.controller('MainController', function($scope, userService) {
-    $scope.appName = 'Portfolio Manager';
+    $scope.appName = 'Personal Portfolio Manager';
 
     userService.getUserDetails()
         .success( function(user) {

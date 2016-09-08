@@ -1,7 +1,7 @@
 /**
  * Created by Student on 9/7/2016.
  */
-var JPMPortfolioManager = angular.module('JPMPortfolioManager', ['ngRoute']);
+var JPMPortfolioManager = angular.module('JPMPortfolioManager', ['ngRoute','chart.js']);
 JPMPortfolioManager.config(function ($routeProvider) {
     $routeProvider
         .when("/overview", {
